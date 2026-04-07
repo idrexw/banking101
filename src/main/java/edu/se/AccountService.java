@@ -7,5 +7,7 @@ public class AccountService {
     private List<Account> accounts = new ArrayList<>();
 
     public Account createAccount(String type, String name, double initialBalance) {
+        Account newAccount = new Account(type, name, initialBalance);
+    }
     }
 
