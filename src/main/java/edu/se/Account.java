@@ -17,4 +17,16 @@ public class Account {
     public double getBalance() {
         return balance;
     }
+
+    public void setName(String name) {
+        this.accountHolder = name;
+    }
+
+    public void setBalance(double x) {
+        this.balance = x;
+    }
+
+    public void setType(String t) {
+        this.accountType = t;
+    }
 }

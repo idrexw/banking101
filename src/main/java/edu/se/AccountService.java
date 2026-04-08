@@ -9,5 +9,10 @@ public class AccountService {
     public Account createAccount(String type, String name, double initialBalance) {
         Account newAccount = new Account(type, name, initialBalance);
     }
+
+    public Account updateAccount(Account account, String type, String name, double balance)
+        account.setBalance(balance);
+        account.setType(type);
+        account.setName(name);
     }
 
