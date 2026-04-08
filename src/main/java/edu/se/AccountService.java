@@ -19,7 +19,8 @@ public class AccountService {
         return newAccount;
     }
 
-    public Account updateAccount(Account account, String type, String name, double balance) {
+    public Account updateAccount(long id, String type, String name, double balance) {
+        Account account = getAccount(id);
         account.setBalance(balance);
         account.setType(type);
         account.setName(name);

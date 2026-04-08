@@ -5,5 +5,7 @@ public class Main {
         AccountService Control = new AccountService();
         Account newAccount = Control.createAccount("Checking", "Andrew Maher", 100.00);
         System.out.println(newAccount);
+        Control.updateAccount(newAccount.getAccountNumber(), "Savings", "Andrew Maher", 500.00);
+        System.out.println(Control.getAccount(newAccount.getAccountNumber()));
     }
 }
