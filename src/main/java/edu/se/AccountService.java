@@ -7,20 +7,33 @@ public class AccountService {
 
     public Account createAccount(String type, String name, double initialBalance) {
         Random rand = new Random();
-        int n = rand.nextInt(1000000000000000, 9999999999999999) // Max 16 Digits
-        for (int i = 0; i < accounts.length; i++) {
-            if (accounts.get(i).getAccountNumber == n) {
+        long n = rand.nextLong(1000000000000000L, 9999999999999999L); // Max 16 Digits
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getAccountNumber() == n) {
                 i = 0; // reset loop
-                n = rand.nextInt(1000000000000000, 9999999999999999) // Generate new ID
+                n = rand.nextLong(1000000000000000L, 9999999999999999L); // Generate new ID
             }
         }
-        Account newAccount = new Account(n, type, name, initialBalance);
+        Account newAccount = new Account(n, name, initialBalance, type);
         accounts.add(newAccount);
+        return newAccount;
     }
 
-    public Account updateAccount(Account account, String type, String name, double balance)
+    public Account updateAccount(long id, String type, String name, double balance) {
+        Account account = getAccount(id);
         account.setBalance(balance);
         account.setType(type);
         account.setName(name);
+        return account;
     }
+
+    public Account getAccount(long accountNumber) {
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getAccountNumber() == accountNumber) {
+                return accounts.get(i);
+            }
+        }
+        return null;
+    }
+}
 
