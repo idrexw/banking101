@@ -33,7 +33,15 @@ public class AccountService {
                 return accounts.get(i);
             }
         }
-        return null;
+        return "No Account Found.";
+    }
+
+    public void deleteAccount(long accountNumber) {
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getAccountNumber() == accountNumber) {
+                accounts.remove(i);
+            }
+        }
     }
 }
 
